@@ -1,0 +1,358 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+//@import "./common";
+
+$postMainColor: green;
+$second-postMainColor: #FF9B24;
+
+@mixin flex($jc: center, $ai: center, $fd: row) {
+    display: flex;
+    justify-content: $jc;
+    align-items: $ai;
+    flex-direction: $fd;
+}
+
+body {
+    background-color: lightblue;
+  }
+
+.container {    
+    margin: 100px auto;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    height: auto;
+    background: white;
+    padding: 30px 0px;
+    @include flex();
+    border: 20px solid rgba(255, 219, 143, 0.5);
+    .card {
+        @include flex();
+        width: calc((100% - 2 * 2 * 5px) / 2);
+        margin: 0px auto;
+        max-width: 300px;
+        .post {
+            @include flex(flex-start, stretch, column);
+            width: 200px;
+            height: 300px;
+            border: 5px solid rgb(159, 255, 159);
+            box-shadow: 5px 5px 10px rgba(black, .3);
+            background: lighten($postMainColor, 15);             
+            &__title {
+                background: $postMainColor;
+                padding: 10px 20px;
+                color: white;
+            }
+            &__text {
+                height: 100%;
+                font-size: 50px;
+                font-weight: bold;
+                padding: 10px 20px;
+            }
+        }   
+    }
+    .link {
+        margin: 0 auto;
+        width: 500px;
+        height: auto;
+        .link__block {
+            height: 100px;
+            display: flex;
+            align-items: center;        
+            .link__button:hover, .link__button:active {
+                background-color: #da7503;
+                opacity: 1;
+                font-size: 12px;}
+            .link__button {
+                margin-top: 20px;
+                margin-bottom: 20px;
+                margin-right: auto;
+                transition: all .2s ease-in-out;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                flex-direction: column;
+                justify-content: flex-start;
+                fill: #fff;
+                width: 300px;
+                padding: 0 8px;
+                background: #f09d05;
+                font-size: 14px;
+                line-height: normal;
+                position: relative;
+                text-align: center;
+                border: none;    
+                outline: none;
+                border-radius: 4px;
+                box-sizing: border-box;
+                /*transition: all .2s ease-in-out;*/
+                font-family: BlinkMacSystemFont, -apple-system, Arial, Segoe UI, Roboto, Helvetica, sans-serif;
+                text-decoration: none;
+                cursor: pointer;
+                overflow: hidden;
+                height: 48px;
+                transition-property: background-color, font-size;
+                transition-duration: 1s, 1.2s;
+                transition-timing-function: ease;
+                transition-delay: 0s;         
+                .link__description {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    height: 48px;
+                    font-size: var(--common-font-size);
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    color: #fff;
+                    cursor: pointer;
+                    font: inherit;
+                    vertical-align: baseline; 
+                    font: 100%/1.4 BlinkMacSystemFont, -apple-system, Arial, "Segoe UI", Roboto, Helvetica, sans-serif;
+                    text-size-adjust: 100%;
+                }
+            }  
+            .link__close-button span,
+            .link__close-button::before,
+            .link__close-button::after {
+                content: "";
+                width: 60%;
+                height: 3px;
+                background: white;
+                position: absolute;
+                transition: transform .3s;
+            }
+            .link__close-button::before {
+                transform: translateY(-8px);
+            }
+            .link__close-button::after {
+                transform: translateY(8px);
+            }
+
+            .link__close-button:hover span {
+                display: none;
+            }
+            .link__close-button:hover::before {
+                transform: rotate(45deg);
+            }
+            .link__close-button:hover::after {
+                transform: rotate(-45deg);
+            }
+            .link__close-button {
+                width: 50px;
+                height: 50px;
+                position: relative;
+                background: #773737;
+                margin-bottom: 20px;
+                border-radius: 10%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+        }   
+        .linkedin:hover .linkedin__github__site {
+            //transform: translate(0);
+            transform: scale(1);
+        }
+        .linkedin:hover .linkedin__github__files {
+            //transform: translate(0);
+            transform: scale(1);
+        }
+        .linkedin {
+            position: relative;
+            overflow: hidden;
+            width: auto;
+            height: 400px;
+            p {
+                color: grey;
+            }
+            h1 {
+                color: #DDDDDD;
+                position: relative;
+                margin-top: 145px;
+                text-align: center;
+            }
+            .linkedin__github__site {
+                display: flex;                
+                top: 50px;
+                left: 0;
+                margin: 30px auto;
+                padding: 0px;    
+                background: #f09d05;
+                width: 500px;
+                height: auto;
+                border-top: 1px solid red;
+                border-bottom: 1px solid red;
+                position: absolute;
+                transition: transform 3s;
+                transform: translate(-100%);
+                .linkedin__github__site-igigigogo:hover, .linkedin__github__site-igigigogo:active {
+                    background-color: #fa2b07;
+                    opacity: 1;
+                    font-size: 12px;
+                }
+                .linkedin__github__site-igigigogo {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-right: auto;
+                    transition: all .2s ease-in-out;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    fill: #fff;
+                    width: 300px;
+                    padding: 0 8px;
+                    background: #fa6007;
+                    font-size: 14px;
+                    line-height: normal;
+                    text-align: center;
+                    border: none;    
+                    outline: none;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    /*transition: all .2s ease-in-out;*/
+                    font-family: BlinkMacSystemFont, -apple-system, Arial, Segoe UI, Roboto, Helvetica, sans-serif;
+                    text-decoration: none;
+                    cursor: pointer;
+                    overflow: hidden;
+                    height: 48px;
+                    transition-property: background-color, font-size;
+                    transition-duration: 1s, 1.2s;
+                    transition-timing-function: ease;
+                    transition-delay: 0s; 
+                    position: relative;
+                    left: 97px;
+                    .linkedin__github-description {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        height: 48px;
+                        font-size: var(--common-font-size);
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        color: #fff;
+                        cursor: pointer;
+                        font: inherit;
+                        vertical-align: baseline; 
+                        font: 100%/1.4 BlinkMacSystemFont, -apple-system, Arial, "Segoe UI", Roboto, Helvetica, sans-serif;
+                        text-size-adjust: 100%;
+                    }
+                }
+            }
+            .linkedin__github__files {
+                display: flex;                
+                top: 200px;
+                left: 0;
+                margin: 30px auto;
+                padding: 0px;    
+                background: #f09d05;
+                width: 500px;
+                height: auto;
+                border-top: 1px solid red;
+                border-bottom: 1px solid red;
+                position: absolute;
+                transition: transform 3s;
+                transform: translate(-100%);
+                .linkedin__github__files-igigigogo:hover, .linkedin__github__files-igigigogo:active {
+                    background-color: #fa2b07;
+                    opacity: 1;
+                    font-size: 12px;
+                }
+                .linkedin__github__files-igigigogo {
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                    margin-right: auto;
+                    transition: all .2s ease-in-out;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    fill: #fff;
+                    width: 300px;
+                    padding: 0 8px;
+                    background: #fa6007;
+                    font-size: 14px;
+                    line-height: normal;
+                    text-align: center;
+                    border: none;    
+                    outline: none;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    /*transition: all .2s ease-in-out;*/
+                    font-family: BlinkMacSystemFont, -apple-system, Arial, Segoe UI, Roboto, Helvetica, sans-serif;
+                    text-decoration: none;
+                    cursor: pointer;
+                    overflow: hidden;
+                    height: 48px;
+                    transition-property: background-color, font-size;
+                    transition-duration: 1s, 1.2s;
+                    transition-timing-function: ease;
+                    transition-delay: 0s; 
+                    position: relative;
+                    left: 97px;
+                    .linkedin__github-description {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        height: 48px;
+                        font-size: var(--common-font-size);
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        color: #fff;
+                        cursor: pointer;
+                        font: inherit;
+                        vertical-align: baseline; 
+                        font: 100%/1.4 BlinkMacSystemFont, -apple-system, Arial, "Segoe UI", Roboto, Helvetica, sans-serif;
+                        text-size-adjust: 100%;
+                    }
+                }
+            }    
+        }
+    }
+}
+.container {    
+    margin: 100px auto;
+    width: 1000px;
+    height: auto;
+    background: white;
+    padding: 30px 0px;
+    @include flex();
+    border: 20px solid rgba(255, 219, 143, 0.5);
+    .card {
+        @include flex();
+        margin: 0px auto;
+        width: calc((100% - 2 * 2 * 5px) / 2);
+        max-width: 300px;
+        .second-post {
+            @include flex(flex-start, stretch, column);
+            width: 200px;
+            height: 300px;
+            border: 5px solid rgb(255, 251, 33);
+            box-shadow: 5px 5px 10px rgba(black, .3);
+            background: lighten($second-postMainColor, 15);             
+            &__title {
+                background: $second-postMainColor;
+                padding: 10px 20px;
+                color: white;
+            }
+            &__text {
+                height: 100%;
+                font-size: 50px;
+                font-weight: bold;
+                padding: 10px 20px;
+                color: blue;
+            }
+        }   
+    }
+}
+
+
+   
+
